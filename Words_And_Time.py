@@ -1,7 +1,6 @@
 import cv2
 import mediapipe as mp
 import math
-from time import time
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -17,6 +16,7 @@ CONFIRM = True
 #Confirm og values
 Read = ""
 HasRead = ""
+String = ""
 ReadCount = 0
 NewRead = 0
 
@@ -147,10 +147,11 @@ while cap.isOpened():
                     if (ReadCount < 0):
                         ReadCount = 0
 
-                if (ReadCount > 20):
+                if ((ReadCount > 20) and (Read != "-")):
                     print("Confirm Letter: {}".format(Read))
                     NewRead = 0
                     ReadCount = 0
+                    String += Read
                       
                 
             
@@ -158,7 +159,10 @@ while cap.isOpened():
     cv2.imshow("Hand Landmarks with Numbers", image)
     
     if cv2.waitKey(1) & 0xFF == 27:  # Press 'ESC' to exit
+        print("Word: {}".format(String))
         break
+
+    
 
 cap.release()
 cv2.destroyAllWindows()
