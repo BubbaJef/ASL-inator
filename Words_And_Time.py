@@ -5,11 +5,21 @@ from time import time
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
+
 MYHAND = .07 #set scale of tested hand
+
+#Make constants
 DEBUG = False
 FIND = False
 ID = True
+CONFIRM = True
+
+#Confirm og values
 Read = ""
+HasRead = ""
+ReadCount = 0
+NewRead = 0
+
 
 # Euclidean distance
 def compute_distance(landmark1, landmark2):
@@ -117,23 +127,30 @@ while cap.isOpened():
 
             print("Read: {}".format(Read))
 
-            '''
-            if (NewRead > 10):
-                
-            if (Read == HasRead):
-                ReadCount += 1 
-                NewRead -= 1
-                
-                if (NewRead < 0):
+            if (CONFIRM):            
+                if (NewRead > 10):
+                    HasRead = Read
                     NewRead = 0
+                    print("New letter!")
                     
-            else:
-                ReadCount -= 1
-                NewRead += 1
+                if (Read == HasRead):
+                    ReadCount += 1 
+                    NewRead -= 1
+                    
+                    if (NewRead < 0):
+                        NewRead = 0
+                        
+                else:
+                    ReadCount -= 1
+                    NewRead += 1
 
-                if (ReadCount < 0):
+                    if (ReadCount < 0):
+                        ReadCount = 0
+
+                if (ReadCount > 20):
+                    print("Confirm Letter: {}".format(Read))
+                    NewRead = 0
                     ReadCount = 0
-            '''
                       
                 
             
