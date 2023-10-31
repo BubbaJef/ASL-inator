@@ -10,7 +10,7 @@ print ("Test client sending packets to IP {0}, via port {1}\n".format(SERVER_IP,
 
 mySocket = socket( AF_INET, SOCK_DGRAM )
 myMessage = "Hello!"
-myMessage1 = "cum"
+myMessage1 = "hi"
 i = 0
 while i < 10:
     mySocket.sendto(myMessage.encode('utf-8'),(SERVER_IP,PORT_NUMBER))
