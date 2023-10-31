@@ -253,6 +253,7 @@ def open_camera():
                 if (NewRead > 10):
                     if (Read != "-"):
                         HasRead = Read
+                        markTime = time()
                         print("New letter!")
                         
                     NewRead = 0
