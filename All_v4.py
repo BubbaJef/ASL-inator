@@ -279,7 +279,7 @@ def open_camera():
                 if ((ReadCount > 10) and (Read != "-") and ((currentTime - markTime) > 3)):
                     print("Confirm Letter: {}".format(Read))
 
-                    if (Read == "CLEAR"):
+                    if (Read == "~"):
                         String = ""
                         Read = ""
                         
