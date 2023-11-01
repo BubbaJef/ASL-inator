@@ -6,6 +6,7 @@ from time import time
 PORT_NUMBER = 5000
 SIZE = 1024
 String = ""
+
 def receive_data():
     data, addr = mySocket.recvfrom(SIZE)
     print(data)
@@ -27,6 +28,7 @@ mySocket = socket(AF_INET, SOCK_DGRAM)
 mySocket.bind((hostName, PORT_NUMBER))
 
 app = Tk()
+app.attributes('-fullscreen', True)  # Set the app to full-screen mode
 app.bind('<Escape>', lambda e: app.quit())
 
 customFont_2 = font.Font(family='Arial', size=25)
