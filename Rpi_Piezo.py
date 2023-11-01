@@ -2,8 +2,9 @@ from time import time
 import RPi.GPIO as GPIO
 
 #set led and button
-switch = 12
-led = 13
+switch = 12 #GPIO 18 = pin 12
+led = 13 #GPIO 27 = pin 13
+piezo = 7 #GPI O4 = pin 7
 
 #set GPIO
 GPIO.setwarnings(False)
