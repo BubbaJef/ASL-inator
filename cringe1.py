@@ -1,13 +1,20 @@
 from tkinter import *
 from tkinter import font
 from socket import socket, gethostbyname, AF_INET, SOCK_DGRAM
+from time import time
 
 PORT_NUMBER = 5000
 SIZE = 1024
-
+String = ""
 def receive_data():
     data, addr = mySocket.recvfrom(SIZE)
     print(data)
+
+    if (len(data) > 1):
+        String = data
+    else:
+        Read = data
+    
     confirmed_letter.delete("1.0", END)
     confirmed_letter.insert(END, data)
     confirmed_letter.tag_add("center", "1.0", "end")
