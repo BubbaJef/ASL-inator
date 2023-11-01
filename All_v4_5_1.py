@@ -258,6 +258,8 @@ def open_camera():
                     if (Read != "-"):
                         HasRead = Read
                         print("New letter!")
+                        #Send           
+                        mySocket.sendto(Read.encode('utf-8'),(SERVER_IP,PORT_NUMBER))
                         
                     NewRead = 0
                     
@@ -298,8 +300,7 @@ def open_camera():
                     ReadCount = 0
                     String += Read
 
-    #Send           
-    mySocket.sendto(String.encode('utf-8'),(SERVER_IP,PORT_NUMBER))
+    
                     
     status_bar1.config(text=String)
 
