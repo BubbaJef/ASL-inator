@@ -34,12 +34,13 @@ data = "-"
 String = "Cringe"
 
 def Cringe():
-    (data,addr) = mySocket.recvfrom(SIZE)
-    print(data)
-    confirmed_letter.delete("1.0", END)  # Delete current content
-    confirmed_letter.insert(END, data)   # Insert the new letter
-    confirmed_letter.tag_add("center", "1.0", "end")
-    status_bar1.config(text=String)
+    while True:
+        (data,addr) = mySocket.recvfrom(SIZE)
+        print(data)
+        confirmed_letter.delete("1.0", END)  # Delete current content
+        confirmed_letter.insert(END, data)   # Insert the new letter
+        confirmed_letter.tag_add("center", "1.0", "end")
+        status_bar1.config(text=String)
     
 
 Cringe()    
