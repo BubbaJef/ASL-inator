@@ -8,6 +8,7 @@ import math
 from time import time
 import sys
 from socket import socket, AF_INET, SOCK_DGRAM
+import webbrowser
 
 #make constants
 WIDTH = 400
@@ -288,6 +289,10 @@ def open_camera():
                     elif (Read == "<"):
                         Read = ""
                         String = String[:-1]
+                    elif (Read == "?"):
+                        Read = ""
+                        String = ""
+                        webbrowser.open('https://youtu.be/dQw4w9WgXcQ')
                         
                     NewRead = 0
                     ReadCount = 0
