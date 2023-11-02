@@ -7,7 +7,7 @@ keras
 
 open cv
 
-mediapipie
+mediapipe
 
 https://www.kaggle.com/datasets/akshatbhatnagar174/american-sign-language-version-1/data
 https://github.com/tensorflow/tfjs-models/tree/master/hand-pose-detection
